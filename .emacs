@@ -64,5 +64,12 @@
 (setq-default fill-column 80)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;; TODO: WISHLIST
-;; * Scroll with Mac trackpad
+;; Python Stuff
+
+;; elpy
+(package-initialize)
+(elpy-enable)
+
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
