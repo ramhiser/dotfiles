@@ -34,6 +34,9 @@ export PS1
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Homebrew Stuff
+export HOMEBREW_EDITOR=/usr/local/bin/emacs
+
 # API Keys
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
