@@ -1,6 +1,24 @@
+;; MELPA hangs. Removing it for now.
+;; Open SO post: http://stackoverflow.com/questions/31232329/emacs-24-5-with-prelude-stuck-on-contacting-host-melpa-org
+;; Moar Info: http://stackoverflow.com/a/29908490/234233
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")))
+;;                         ("melpa" . "http://melpa.org/packages/")))
+
+;; Mouse Integration with iTerm2
+;; Enables clicking and trackpad scrolling
+;; See: http://stackoverflow.com/a/18026564/234233
 (require 'mouse)
 (xterm-mouse-mode t)
+(global-set-key [mouse-4] '(lambda ()
+                             (interactive)
+                             (scroll-down 1)))
+(global-set-key [mouse-5] '(lambda ()
+                             (interactive)
+                             (scroll-up 1)))
+(setq mouse-sel-mode t)
 (defun track-mouse (e))
+
 
 ;; Show column number on the bottom status bar.
 (setq column-number-mode t)
