@@ -13,22 +13,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-# The colors are used with the Solarized dark color theme.
-# They make look terrible if Solarized is not installed.
-# Here's the link to Solarized:
-# http://ethanschoonover.com/solarized
-#
-# I used the following website to generate my prompt:
-# http://www.linuxhelp.net/guides/bashprompt/bashprompt-print.php
-#
-# There, I used the following code:
-# <green>(<white>\d<yellow>@<white>\@<green>) (<white>\u<yellow>@<white>\h<green>) (<white>\W<green>)<space>$<space>
-#
-# NOTE: I added the last part manually to get my font color after I generated the prompt on the site.
-# Here's the font color: \[\033[0;38m\]
-PS1="\[\033[0;32m\](\[\033[1;37m\]\\d\[\033[1;33m\]@\[\033[1;37m\]\\@\[\033[0;32m\])(\[\033[1;37m\]\\u\[\033[1;33m\]@\[\033[1;37m\]\\h\[\033[\
-0;32m\])(\[\033[1;37m\]\\W\[\033[0;32m\]) $ \[\033[0;38m\]"
-export PS1
+# Bash Prompt
+# Source: https://github.com/mathiasbynens/dotfiles
+# TODO: Fork this profile and borrow all the useful things. Lots of 'em!
+source ~/.bash_prompt
 
 # Python Stuff
 export WORKON_HOME=~/.virtualenvs
