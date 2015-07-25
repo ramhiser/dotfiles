@@ -37,6 +37,11 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Homebrew Stuff
 export HOMEBREW_EDITOR=/usr/local/bin/emacs
 
+# Java Stuff
+# Note: I downloaded SDK from Oracle's site
+# Other details from: http://stackoverflow.com/a/6588410/234233
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+
 # API Keys
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
