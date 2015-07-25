@@ -88,6 +88,17 @@
 (package-initialize)
 (elpy-enable)
 
-
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+
+;; Utilities
+
+;; Pretty JSON Formatting
+;; Source: http://irreal.org/blog/?p=354
+(defun json-format ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)
+  )
+)
