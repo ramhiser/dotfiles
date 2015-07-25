@@ -36,6 +36,8 @@ if [ -f ~/.api_keys ]; then
 fi 
 # Utilities
 
-# URL Encode (from Anthony McClosky)
+# URL Encode and Decode (from Anthony McClosky)
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
 
