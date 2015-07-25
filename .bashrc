@@ -46,3 +46,8 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
 fi 
+# Utilities
+
+# URL Encode (from Anthony McClosky)
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
