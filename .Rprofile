@@ -4,7 +4,7 @@
     "/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin"
   )
   options(
-    repos = c(CRAN = "http://cran.fhcrc.org/"),
+    repos = c(CRAN = "https://cran.fhcrc.org/"),
     browserNLdisabled = TRUE,
     deparse.max.lines = 2)
 }
