@@ -1,7 +1,6 @@
 export PATH=~/scripts:~/local/bin:/usr/local/bin:$PATH
 
-# Never save or restore when running R
-alias R='R --no-save --no-restore-data --quiet'
+alias ll='ls -lah'
 
 # Enable X11 forwarding by default when SSH'ing
 # The '-C' argument compresses the forwarded X11 data.
@@ -17,6 +16,9 @@ fi
 # Source: https://github.com/mathiasbynens/dotfiles
 # TODO: Fork this profile and borrow all the useful things. Lots of 'em!
 source ~/.bash_prompt
+
+# R Stuff
+alias R='R --no-save --no-restore-data --quiet'
 
 # Python Stuff
 export WORKON_HOME=~/.virtualenvs
@@ -34,6 +36,12 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
 fi 
+
+
+# Apache Spark
+export SPARK_HOME="$HOME/spark-1.4.1"
+
+
 # Utilities
 
 # URL Encode and Decode (from Anthony McClosky)
