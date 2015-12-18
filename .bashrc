@@ -1,4 +1,4 @@
-export PATH=~/scripts:~/local/bin:/usr/local/bin:$PATH
+export PATH=~/scripts:~/local/bin:~/miniconda2/bin:/usr/local/bin:$PATH
 
 alias ll='ls -lah'
 
