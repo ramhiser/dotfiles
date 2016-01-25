@@ -107,6 +107,12 @@
 (setq web-mode-code-indent-offset 2)
 
 
+;; Scala
+;; For details, see: http://www.troikatech.com/blog/2014/11/26/ensime-and-emacs-as-a-scala-ide
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+
 ;; Utilities
 
 ;; Pretty JSON Formatting
