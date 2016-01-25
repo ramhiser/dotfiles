@@ -1,4 +1,7 @@
-export PATH=~/scripts:~/local/bin:~/miniconda2/bin:/usr/local/bin:$PATH
+# Apache Spark
+export SPARK_HOME="$HOME/spark-1.6.0"
+
+export PATH=~/scripts:~/local/bin:~/miniconda2/bin:/usr/local/bin:$SPARK_HOME/bin:$PATH
 
 alias ll='ls -lah'
 
@@ -48,11 +51,6 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
 fi 
-
-
-# Apache Spark
-export SPARK_HOME="$HOME/spark-1.4.1"
-
 
 # Utilities
 
