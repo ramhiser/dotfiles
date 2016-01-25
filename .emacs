@@ -1,9 +1,6 @@
-;; Using stable version of MELPA to avoid hanging.
-;; http://stable.melpa.org/#/getting-started
-;; Moar Info: http://stackoverflow.com/a/29908490/234233
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "https://stable.melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 
 ;; Mouse Integration with iTerm2
 ;; Enables clicking and trackpad scrolling
