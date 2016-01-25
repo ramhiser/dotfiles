@@ -1,9 +1,9 @@
-;; MELPA hangs. Removing it for now.
-;; Open SO post: http://stackoverflow.com/questions/31232329/emacs-24-5-with-prelude-stuck-on-contacting-host-melpa-org
+;; Using stable version of MELPA to avoid hanging.
+;; http://stable.melpa.org/#/getting-started
 ;; Moar Info: http://stackoverflow.com/a/29908490/234233
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")))
-;;                         ("melpa" . "http://melpa.org/packages/")))
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "https://stable.melpa.org/packages/")))
 
 ;; Mouse Integration with iTerm2
 ;; Enables clicking and trackpad scrolling
