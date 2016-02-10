@@ -58,6 +58,9 @@ fi
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 
+# Pretty JSON
+alias prettyjson='python -m json.tool'
+
 # Basic Web Server from Paul Irish
 # Source: https://www.youtube.com/watch?v=f7AU2Ozu8eo
 function server() {
