@@ -68,3 +68,7 @@ function server() {
     open "http://localhost:${port}/"
     python -m SimpleHTTPServer "$port"
 }
+# Docker
+# Get IP of Docker container. Append Docker container ID.
+# Example: dockerip bf6e22a1f331
+alias dockerip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
