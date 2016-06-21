@@ -46,6 +46,10 @@
 ;; If on, this feature types " <- " if the underscore is pressed.
 (ess-toggle-underscore nil)
 
+;; Old-style indentation
+;; Source: http://stackoverflow.com/a/17610845/234233
+(setq ess-default-style 'DEFAULT)
+
 ;; Loads ESS-tracebug to debug R code within emacs/ESS.
 ;; The hook loads ESS-tracebug automatically when R is loaded.
 ;; For more information, see: http://code.google.com/p/ess-tracebug/
