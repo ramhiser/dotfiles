@@ -76,4 +76,5 @@ alias dockerip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
 
 # Kubernetes
 export PATH=~/code/frameworks/kubernetes/platforms/darwin/amd64:$PATH
+export KUBE_EDITOR=emacs
 
