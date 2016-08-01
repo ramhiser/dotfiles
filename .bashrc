@@ -1,5 +1,5 @@
 # Apache Spark
-export SPARK_HOME="$HOME/spark-1.6.0"
+export SPARK_HOME="$HOME/spark-2.0.0"
 
 export PATH=~/scripts:~/local/bin:/usr/local/bin:$SPARK_HOME/bin:$PATH
 
