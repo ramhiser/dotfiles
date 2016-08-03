@@ -35,6 +35,12 @@ export PS1
 # R Stuff
 alias R='R --no-save --no-restore-data --quiet'
 
+# Fixes a brew-related pathing issue.
+# Otherwise, get the annoying error...
+#   Library not loaded: /usr/local/opt/gcc/lib/gcc/5/libgfortran.3.dylib
+# Source: http://stackoverflow.com/a/30291779/234233
+export DYLD_LIBRARY_PATH=/usr/local/Cellar/gcc/6.1.0/lib/gcc/6/
+
 # Python Stuff
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -46,6 +52,7 @@ export HOMEBREW_EDITOR=/usr/local/bin/emacs
 # Note: I downloaded SDK from Oracle's site
 # Other details from: http://stackoverflow.com/a/6588410/234233
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export PATH=$JAVA_HOME/bin:$PATH
 
 # API Keys
 if [ -f ~/.api_keys ]; then
