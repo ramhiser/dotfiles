@@ -1,2 +1,2 @@
 R_LIBS=~/local/Rpackages
-SPARK_HOME=/Users/ramey/spark-1.4.1
+SPARK_HOME=/Users/ramey/spark-2.0.2
