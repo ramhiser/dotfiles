@@ -29,5 +29,5 @@ if [ ! -L ~/todo ]; then
 fi
 
 if [ ! -L ~/ustudio ]; then
-  ln -s ~/Dropbox/ustudio ~/ustudio
+  ln -s ~/Dropbox/novi ~/novi
 fi
