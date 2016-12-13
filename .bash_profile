@@ -28,6 +28,6 @@ if [ ! -L ~/todo ]; then
   ln -s ~/Dropbox/todo/ ~/todo
 fi
 
-if [ ! -L ~/ustudio ]; then
+if [ ! -L ~/novi ]; then
   ln -s ~/Dropbox/novi ~/novi
 fi
