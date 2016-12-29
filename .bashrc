@@ -11,8 +11,8 @@ alias ssh='ssh -XC'
 
 # Bash/Git Autocomplete
 # http://stackoverflow.com/a/14970926/234233
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+  source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
 # The colors are used with the Solarized dark color theme.
