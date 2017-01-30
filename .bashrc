@@ -48,6 +48,11 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Homebrew Stuff
 export HOMEBREW_EDITOR=/usr/local/bin/emacs
 
+# LaTeX Stuff
+# Source: http://stackoverflow.com/a/29239327/234233
+ln -f -s /usr/bin/texi2dvi /usr/local/bin/texi2dvi
+ln -f -s /usr/bin/texi2pdf /usr/local/bin/texi2pdf
+
 # Java Stuff
 # Note: I downloaded SDK from Oracle's site
 # Other details from: http://stackoverflow.com/a/6588410/234233
