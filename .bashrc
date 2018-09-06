@@ -1,7 +1,4 @@
-# Apache Spark
-export SPARK_HOME="$HOME/spark-2.0.0"
-
-export PATH=~/scripts:~/local/bin:/usr/local/bin:$SPARK_HOME/bin:$PATH
+export PATH=~/scripts:~/local/bin:/usr/local/bin:/Users/ramey/miniconda3/bin:/usr/local/opt/gnu-getopt/bin:$PATH
 
 alias ll='ls -lah'
 
@@ -15,23 +12,6 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
-# The colors are used with the Solarized dark color theme.
-# They make look terrible if Solarized is not installed.
-# Here's the link to Solarized:
-# http://ethanschoonover.com/solarized
-#
-# I used the following website to generate my prompt:
-# http://www.linuxhelp.net/guides/bashprompt/bashprompt-print.php
-#
-# There, I used the following code:
-# <green>(<white>\d<yellow>@<white>\@<green>) (<white>\u<yellow>@<white>\h<green>) (<white>\W<green>)<space>$<space>
-#
-# NOTE: I added the last part manually to get my font color after I generated the prompt on the site.
-# Here's the font color: \[\033[0;38m\]
-PS1="\[\033[0;32m\](\[\033[1;37m\]\\d\[\033[1;33m\]@\[\033[1;37m\]\\@\[\033[0;32m\])(\[\033[1;37m\]\\u\[\033[1;33m\]@\[\033[1;37m\]\\h\[\033[\
-0;32m\])(\[\033[1;37m\]\\W\[\033[0;32m\]) $ \[\033[0;38m\]"
-export PS1
-
 # R Stuff
 alias R='R --no-save --no-restore-data --quiet'
 
@@ -42,8 +22,9 @@ alias R='R --no-save --no-restore-data --quiet'
 export DYLD_LIBRARY_PATH=/usr/local/Cellar/gcc/6.1.0/lib/gcc/6/
 
 # Python Stuff
+# Source: https://stackoverflow.com/a/43458830/234233
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 
 # Homebrew Stuff
 export HOMEBREW_EDITOR=/usr/local/bin/emacs
@@ -62,7 +43,24 @@ export PATH=$JAVA_HOME/bin:$PATH
 # API Keys
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
-fi 
+fi
+
+# The colors are used with the Solarized dark color theme.
+# They make look terrible if Solarized is not installed.
+# Here's the link to Solarized:
+# http://ethanschoonover.com/solarized
+#
+# I used the following website to generate my prompt:
+# http://www.linuxhelp.net/guides/bashprompt/bashprompt-print.php
+#
+# There, I used the following code:
+# <green>(<white>\d<yellow>@<white>\@<green>) (<white>\u<yellow>@<white>\h<green>) (<white>\W<green>)<space>$<space>
+#
+# NOTE: I added the last part manually to get my font color after I generated the prompt on the site.
+# Here's the font color: \[\033[0;38m\]
+PS1="\[\033[0;32m\](\[\033[1;37m\]\\d\[\033[1;33m\]@\[\033[1;37m\]\\@\[\033[0;32m\])(\[\033[1;37m\]\\u\[\033[1;33m\]@\[\033[1;37m\]\\h\[\033[\
+-0;32m\])(\[\033[1;37m\]\\W\[\033[0;32m\]) $ \[\033[0;38m\]"
+export PS1
 
 # Utilities
 
@@ -81,12 +79,36 @@ function server() {
     python -m SimpleHTTPServer "$port"
 }
 
-# Docker
-# Get IP of Docker container. Append Docker container ID.
-# Example: dockerip bf6e22a1f331
-alias dockerip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
-
 # Kubernetes
-export PATH=~/code/frameworks/kubernetes/platforms/darwin/amd64:$PATH
+export KOPS_CLUSTER_NAME=ramhiser.k8s.local
+export KOPS_STATE_STORE=s3://ramhiser-kops-state-store
 export KUBE_EDITOR=emacs
 
+# AWS
+
+# Switch AWS Profiles Easily: https://github.com/johnnyopao/awsp
+alias awsp="source _awsp"
+
+# https://github.com/novilabs/handbook/blob/master/new-machine/ssh-agent.md
+SSH_ENV="${HOME}/.ssh/environment"
+
+function start_agent {
+     >&2 echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+     >&2 echo "Success creating ssh agent env file"
+     chmod 600 ${SSH_ENV}
+     source ${SSH_ENV} > /dev/null
+
+     # Auto-add all relevant keys
+     /usr/bin/ssh-add ~/.ssh/*.pem ~/.ssh/*_rsa;
+}
+
+# Source SSH settings, if applicable
+if [[ -f "${SSH_ENV}" ]]; then
+     source ${SSH_ENV} > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else
+     start_agent;
+fi
