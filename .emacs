@@ -111,12 +111,6 @@
 (setq web-mode-code-indent-offset 2)
 
 
-;; Scala
-;; For details, see: http://www.troikatech.com/blog/2014/11/26/ensime-and-emacs-as-a-scala-ide
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
-
 ;; Utilities
 
 ;; Pretty JSON Formatting
@@ -132,7 +126,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(gud-pdb-command-name "pdb"))
+ '(gud-pdb-command-name "pdb")
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
+ '(package-selected-packages (quote (stan-snippets stan-mode jade web-mode magit elpy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -143,7 +140,4 @@
 
 ;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(custom-set-variables
- '(js2-basic-offset 2)
- '(js2-bounce-indent-p t)
-)
+
