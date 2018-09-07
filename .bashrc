@@ -59,7 +59,7 @@ fi
 # NOTE: I added the last part manually to get my font color after I generated the prompt on the site.
 # Here's the font color: \[\033[0;38m\]
 PS1="\[\033[0;32m\](\[\033[1;37m\]\\d\[\033[1;33m\]@\[\033[1;37m\]\\@\[\033[0;32m\])(\[\033[1;37m\]\\u\[\033[1;33m\]@\[\033[1;37m\]\\h\[\033[\
--0;32m\])(\[\033[1;37m\]\\W\[\033[0;32m\]) $ \[\033[0;38m\]"
+0;32m\])(\[\033[1;37m\]\\W\[\033[0;32m\]) $ \[\033[0;38m\]"
 export PS1
 
 # Utilities
