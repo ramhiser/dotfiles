@@ -1,4 +1,4 @@
-export PATH=~/scripts:~/local/bin:/usr/local/bin:/Users/ramey/miniconda3/bin:/usr/local/opt/gnu-getopt/bin:$PATH
+export PATH=/Users/ramey/miniconda3/bin:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
 
 alias ll='ls -lah'
 
