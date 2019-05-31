@@ -65,8 +65,8 @@ export PS1
 # Utilities
 
 # URL Encode and Decode (from Anthony McClosky)
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
 
 # Pretty JSON
 alias prettyjson='python -m json.tool'
@@ -112,3 +112,9 @@ if [[ -f "${SSH_ENV}" ]]; then
 else
      start_agent;
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ramey/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ramey/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ramey/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ramey/google-cloud-sdk/completion.bash.inc'; fi
