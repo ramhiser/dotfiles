@@ -19,7 +19,7 @@ alias R='R --no-save --no-restore-data --quiet'
 # Otherwise, get the annoying error...
 #   Library not loaded: /usr/local/opt/gcc/lib/gcc/5/libgfortran.3.dylib
 # Source: http://stackoverflow.com/a/30291779/234233
-export DYLD_LIBRARY_PATH=/usr/local/Cellar/gcc/6.1.0/lib/gcc/6/
+# export DYLD_LIBRARY_PATH=/usr/local/Cellar/gcc/6.1.0/lib/gcc/6/
 
 # Python Stuff
 # Source: https://stackoverflow.com/a/43458830/234233
@@ -112,6 +112,11 @@ if [[ -f "${SSH_ENV}" ]]; then
 else
      start_agent;
 fi
+
+# Invoke pyenv all the time. Blame Jimmy if it doesn't work.
+# Source: https://github.com/pyenv/pyenv-virtualenv#installing-with-homebrew-for-macos-users
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ramey/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ramey/google-cloud-sdk/path.bash.inc'; fi
