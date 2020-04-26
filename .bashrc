@@ -1,10 +1,7 @@
-export PATH=/Users/ramey/miniconda3/bin:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
+#export PATH=/Users/ramey/miniconda3/bin:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
+export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
 
 alias ll='ls -lah'
-
-# Enable X11 forwarding by default when SSH'ing
-# The '-C' argument compresses the forwarded X11 data.
-alias ssh='ssh -XC'
 
 # Bash/Git Autocomplete
 # http://stackoverflow.com/a/14970926/234233
@@ -15,16 +12,17 @@ fi
 # R Stuff
 alias R='R --no-save --no-restore-data --quiet'
 
-# Fixes a brew-related pathing issue.
-# Otherwise, get the annoying error...
-#   Library not loaded: /usr/local/opt/gcc/lib/gcc/5/libgfortran.3.dylib
-# Source: http://stackoverflow.com/a/30291779/234233
-# export DYLD_LIBRARY_PATH=/usr/local/Cellar/gcc/6.1.0/lib/gcc/6/
+# GCC
+# Source: https://github.com/microsoft/LightGBM/issues/1369#issuecomment-513427706
+export CXX=g++-9
+export CC=gcc-9
 
-# Python Stuff
-# Source: https://stackoverflow.com/a/43458830/234233
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# Redshift ODBC
+# Source: https://docs.aws.amazon.com/redshift/latest/mgmt/odbc-driver-configure-linux-mac.html
+#export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
+export ODBCINI=/Users/ramey/Library/ODBC/odbc.ini
+export AMAZONREDSHIFTODBCINI=/etc/amazon.redshiftodbc.ini
+export ODBCSYSINI=/Users/ramey/Library/ODBC
 
 # Homebrew Stuff
 export HOMEBREW_EDITOR=/usr/local/bin/emacs
@@ -67,9 +65,6 @@ export PS1
 # URL Encode and Decode (from Anthony McClosky)
 alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
 alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
-
-# Pretty JSON
-alias prettyjson='python -m json.tool'
 
 # Basic Web Server from Paul Irish
 # Source: https://www.youtube.com/watch?v=f7AU2Ozu8eo
@@ -117,9 +112,3 @@ fi
 # Source: https://github.com/pyenv/pyenv-virtualenv#installing-with-homebrew-for-macos-users
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ramey/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ramey/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ramey/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ramey/google-cloud-sdk/completion.bash.inc'; fi
