@@ -1,4 +1,3 @@
-#export PATH=/Users/ramey/miniconda3/bin:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
 export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
 
 alias ll='ls -lah'
@@ -13,9 +12,36 @@ fi
 alias R='R --no-save --no-restore-data --quiet'
 
 # GCC
-# Source: https://github.com/microsoft/LightGBM/issues/1369#issuecomment-513427706
-export CXX=g++-9
-export CC=gcc-9
+# Use versioned GCC installed via homebrew
+# Based on: https://apple.stackexchange.com/a/120715
+# Additional Source: https://github.com/microsoft/LightGBM/issues/1369#issuecomment-513427706
+USE_GCC_HOMEBREW=true
+
+if [ "$USE_GCC_HOMEBREW" = true ] ; then
+    echo "Using GCC 9 installed with Homebrew..."
+    export CXX=/usr/local/bin/g++-9
+    export CC=/usr/local/bin/gcc-9
+    export CPP=/usr/local/bin/cpp-9
+    export LD=/usr/local/bin/gcc-9
+    alias c++=/usr/local/bin/c++-9
+    alias g++=/usr/local/bin/g++-9
+    alias gcc=/usr/local/bin/gcc-9
+    alias cpp=/usr/local/bin/cpp-9
+    alias ld=/usr/local/bin/gcc-9
+    alias cc=/usr/local/bin/gcc-9
+else
+    echo "Using Apple's built-in clang instead of GCC 9..."
+    export CC=/usr/bin/gcc
+    export CXX=/usr/bin/g++
+    export CPP=/usr/bin/cpp
+    export LD=/usr/bin/ld
+    alias c++=/usr/bin/c++
+    alias g++=/usr/bin/g++
+    alias gcc=/usr/bin/gcc
+    alias cpp=/usr/bin/cpp
+    alias cc=/usr/bin/gcc
+    alias ld=/usr/bin/ld
+fi
 
 # Redshift ODBC
 # Source: https://docs.aws.amazon.com/redshift/latest/mgmt/odbc-driver-configure-linux-mac.html
