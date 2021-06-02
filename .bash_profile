@@ -6,8 +6,8 @@ if [ -f ~/.keys ]; then
   source ~/.keys
 fi
 
-if [ -f ~/.novi_bashrc ]; then
-  source ~/.novi_bashrc
+if [ -f ~/.setpoint_bashrc ]; then
+  source ~/.setpoint_bashrc
 fi
 
 # Creates symbolic links from various subfolders in ~/Dropbox/ to ~/
@@ -32,12 +32,12 @@ if [ ! -L ~/blog ]; then
   ln -s ~/Dropbox/blog/ ~/blog
 fi
 
-if [ ! -L ~/novi ]; then
-  ln -s ~/Dropbox/novi/ ~/novi
+if [ ! -L ~/setpoint ]; then
+  ln -s ~/Dropbox/setpoint/ ~/setpoint
 fi
 
 if [ ! -L ~/notebooks ]; then
-  ln -s ~/Dropbox/novi/code/notebooks/ ~/notebooks
+  ln -s ~/Dropbox/setpoint/code/notebooks/ ~/notebooks
 fi
 
 # >>> conda initialize >>>

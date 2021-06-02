@@ -1,4 +1,4 @@
-export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/opt/gnu-getopt/bin:$PATH
+export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/gnu-getopt/bin:$PATH
 
 alias ll='ls -lah'
 
@@ -15,7 +15,7 @@ alias R='R --no-save --no-restore-data --quiet'
 # Use versioned GCC installed via homebrew
 # Based on: https://apple.stackexchange.com/a/120715
 # Additional Source: https://github.com/microsoft/LightGBM/issues/1369#issuecomment-513427706
-USE_GCC_HOMEBREW=true
+USE_GCC_HOMEBREW=false
 
 if [ "$USE_GCC_HOMEBREW" = true ] ; then
     echo "Using GCC 9 installed with Homebrew..."
@@ -57,12 +57,6 @@ export HOMEBREW_EDITOR=/usr/local/bin/emacs
 # Source: http://stackoverflow.com/a/29239327/234233
 ln -f -s /usr/bin/texi2dvi /usr/local/bin/texi2dvi
 ln -f -s /usr/bin/texi2pdf /usr/local/bin/texi2pdf
-
-# Java Stuff
-# Note: I downloaded SDK from Oracle's site
-# Other details from: http://stackoverflow.com/a/6588410/234233
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export PATH=$JAVA_HOME/bin:$PATH
 
 # API Keys
 if [ -f ~/.api_keys ]; then
@@ -110,7 +104,8 @@ export KUBE_EDITOR=emacs
 # Switch AWS Profiles Easily: https://github.com/johnnyopao/awsp
 alias awsp="source _awsp"
 
-# https://github.com/novilabs/handbook/blob/master/new-machine/ssh-agent.md
+# SSH
+# From old Novi handbook
 SSH_ENV="${HOME}/.ssh/environment"
 
 function start_agent {
@@ -134,7 +129,12 @@ else
      start_agent;
 fi
 
-# Invoke pyenv all the time. Blame Jimmy if it doesn't work.
+# pyenv
+# Source: Output from `pyenv init`
 # Source: https://github.com/pyenv/pyenv-virtualenv#installing-with-homebrew-for-macos-users
-eval "$(pyenv init -)"
+# Source: https://github.com/pyenv/pyenv/issues/1906#issuecomment-835027647
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
