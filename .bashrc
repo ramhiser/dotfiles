@@ -54,11 +54,6 @@ export ODBCINI=/Users/ramey/Library/ODBC/odbc.ini
 export AMAZONREDSHIFTODBCINI=/etc/amazon.redshiftodbc.ini
 export ODBCSYSINI=/Users/ramey/Library/ODBC
 
-# LaTeX Stuff
-# Source: http://stackoverflow.com/a/29239327/234233
-ln -f -s /usr/bin/texi2dvi /usr/local/bin/texi2dvi
-ln -f -s /usr/bin/texi2pdf /usr/local/bin/texi2pdf
-
 # API Keys
 if [ -f ~/.api_keys ]; then
   source ~/.api_keys
