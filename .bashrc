@@ -1,9 +1,13 @@
-export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/gnu-getopt/bin:$PATH
-
 alias ll='ls -lah'
 
-# Bash/Git Autocomplete
-# http://stackoverflow.com/a/14970926/234233
+export PATH=:~/scripts:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/gnu-getopt/bin:$PATH
+
+# Homebrew Stuff
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_EDITOR=/usr/local/bin/emacs
+
+## Bash/Git Autocomplete
+## http://stackoverflow.com/a/14970926/234233
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
@@ -49,9 +53,6 @@ fi
 export ODBCINI=/Users/ramey/Library/ODBC/odbc.ini
 export AMAZONREDSHIFTODBCINI=/etc/amazon.redshiftodbc.ini
 export ODBCSYSINI=/Users/ramey/Library/ODBC
-
-# Homebrew Stuff
-export HOMEBREW_EDITOR=/usr/local/bin/emacs
 
 # LaTeX Stuff
 # Source: http://stackoverflow.com/a/29239327/234233
@@ -138,3 +139,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 # eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# direnv
+eval "$(direnv hook bash)"
